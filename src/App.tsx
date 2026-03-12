@@ -26,17 +26,18 @@ import { motion, AnimatePresence } from 'motion/react';
 
 // --- Components ---
 
-const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
-    <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-center gap-8 md:gap-24 relative">
-      <div className="hidden md:flex items-center gap-2">
-        <img 
-          src="/logo.png" 
-          alt="MindTech Logo" 
-          className="h-10 w-auto"
-          referrerPolicy="no-referrer"
-        />
-      </div>
+const Navbar = () => {
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-center gap-8 md:gap-24 relative">
+        <div className="hidden md:flex items-center gap-2">
+          <img 
+            src="logo.png" 
+            alt="MindTech Logo" 
+            className="h-10 w-auto"
+            referrerPolicy="no-referrer"
+          />
+        </div>
       
       {/* Centered Modern Notice */}
       <div className="flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 rounded-full bg-brand-orange/10 border border-brand-orange/30 shadow-[0_0_15px_rgba(255,107,0,0.1)]">
@@ -48,65 +49,67 @@ const Navbar = () => (
         </p>
       </div>
     </div>
-  </nav>
-);
+    </nav>
+  );
+};
 
-const Hero = () => (
-  <section className="relative pt-32 pb-20 overflow-hidden">
-    {/* Background Glows */}
-    <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full -z-10" />
-    <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] rounded-full -z-10" />
-    
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center lg:text-left"
-        >
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
-            <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">MindTech Academy</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-center lg:text-left">
-            Desbloqueie Sua <br />
-            Mente e <span className="text-brand-orange">Domine <br />o Digital.</span>
-          </h1>
-          
-          <p className="max-w-lg mx-auto lg:mx-0 text-base md:text-lg text-white/50 mb-10 leading-relaxed text-center lg:text-left">
-            Na MindTech, criamos o caminho definitivo para quem quer dominar as ferramentas digitais e a IA, aumentando sua produtividade e autoridade no mundo moderno.
-          </p>
-          
-          <div className="flex justify-center lg:justify-start">
-            <a 
-              href="#oferta" 
-              className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 orange-gradient rounded-full text-base md:text-lg font-bold flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-brand-orange/40 hover:scale-105 transition-all group"
-            >
-              Quero me inscrever agora
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-        </motion.div>
+const Hero = () => {
+  return (
+    <section className="relative pt-32 pb-20 overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full -z-10" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] rounded-full -z-10" />
+      
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
+          >
+            <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
+              <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">MindTech Academy</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-center lg:text-left">
+              Desbloqueie Sua <br />
+              Mente e <span className="text-brand-orange">Domine <br />o Digital.</span>
+            </h1>
+            
+            <p className="max-w-lg mx-auto lg:mx-0 text-base md:text-lg text-white/50 mb-10 leading-relaxed text-center lg:text-left">
+              Na MindTech, criamos o caminho definitivo para quem quer dominar as ferramentas digitais e a IA, aumentando sua produtividade e autoridade no mundo moderno.
+            </p>
+            
+            <div className="flex justify-center lg:justify-start">
+              <a 
+                href="#oferta" 
+                className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 orange-gradient rounded-full text-base md:text-lg font-bold flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-brand-orange/40 hover:scale-105 transition-all group"
+              >
+                Quero me inscrever agora
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </motion.div>
 
-        {/* Right Content - Image with Badges */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
-        >
-          <div className="relative rounded-[40px] overflow-hidden border border-white/10 aspect-[4/5] md:aspect-square">
-            <img 
-              src="/catalogo.png" 
-              alt="MindTech Catálogo" 
-              className="w-full h-full object-contain p-4"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-40" />
-          </div>
+          {/* Right Content - Image with Badges */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative rounded-[40px] overflow-hidden border border-white/10 aspect-[4/5] md:aspect-square">
+              <img 
+                src="catalogo.png" 
+                alt="MindTech Catálogo" 
+                className="w-full h-full object-contain p-4"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-40" />
+            </div>
 
           {/* Top Right Badge */}
           <motion.div 
@@ -136,27 +139,29 @@ const Hero = () => (
         </motion.div>
       </div>
     </div>
-  </section>
-);
+    </section>
+  );
+};
 
-const About = () => (
-  <section id="sobre" className="py-12 md:py-24 relative">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="relative order-2 md:order-1"
-        >
-          <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 relative z-10">
-            <img 
-              src="/thiago.png" 
-              alt="Thiago Salvino" 
-              className="w-full h-full object-cover transition-all duration-700"
-              referrerPolicy="no-referrer"
-            />
-          </div>
+const About = () => {
+  return (
+    <section id="sobre" className="py-12 md:py-24 relative">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative order-2 md:order-1"
+          >
+            <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 relative z-10">
+              <img 
+                src="thiago.png" 
+                alt="Thiago Salvino" 
+                className="w-full h-full object-cover transition-all duration-700"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           <div className="absolute -bottom-6 -right-6 w-48 h-48 orange-gradient rounded-3xl -z-10 blur-2xl opacity-30" />
           <div className="absolute -top-6 -left-6 w-48 h-48 bg-blue-500/20 rounded-3xl -z-10 blur-2xl opacity-30" />
         </motion.div>
@@ -189,7 +194,8 @@ const About = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 interface ModuleCardProps {
   key?: React.Key;
@@ -498,29 +504,31 @@ const FAQ = () => {
   );
 };
 
-const Footer = () => (
-  <footer className="py-12 border-t border-white/5">
-    <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
-      <div className="flex items-center justify-center gap-8 md:gap-12">
-        <img 
-          src="/logo.png" 
-          alt="MindTech Logo" 
-          className="h-6 w-auto opacity-70"
-          referrerPolicy="no-referrer"
-        />
-        <img 
-          src="/ts.png" 
-          alt="TS Logo" 
-          className="h-6 w-auto opacity-70"
-          referrerPolicy="no-referrer"
-        />
-      </div>
+const Footer = () => {
+  return (
+    <footer className="py-12 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
+        <div className="flex items-center justify-center gap-8 md:gap-12">
+          <img 
+            src="logo.png" 
+            alt="MindTech Logo" 
+            className="h-6 w-auto opacity-70"
+            referrerPolicy="no-referrer"
+          />
+          <img 
+            src="ts.png" 
+            alt="TS Logo" 
+            className="h-6 w-auto opacity-70"
+            referrerPolicy="no-referrer"
+          />
+        </div>
       <p className="text-white/30 text-[10px] md:text-xs text-center">
         © Copyright 2026 MindTech. Todos os direitos reservados.
       </p>
-    </div>
-  </footer>
-);
+      </div>
+    </footer>
+  );
+};
 
 export default function App() {
   return (
