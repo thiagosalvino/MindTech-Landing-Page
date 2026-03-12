@@ -1,66 +1,49 @@
 import express from "express";
-import { createServer as createViteServer } from "vite";
 import path from "path";
-import fs from "fs";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-async function startServer() {
-  const app = express();
-  const PORT = process.env.PORT || 3000;
-  
-  // Resolve o caminho absoluto da pasta dist e public
-  const distPath = path.resolve(__dirname, "dist");
-  const publicPath = path.resolve(__dirname, "public");
-  
-  // Verifica se a pasta dist existe (indicador de produção)
-  const isProd = fs.existsSync(distPath);
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-  console.log("--- DEBUG DE INICIALIZAÇÃO ---");
-  console.log(`Diretório atual (__dirname): ${__dirname}`);
-  console.log(`Caminho dist: ${distPath} (Existe: ${isProd})`);
-  console.log(`Caminho public: ${publicPath} (Existe: ${fs.existsSync(publicPath)})`);
-  console.log(`Ambiente (NODE_ENV): ${process.env.NODE_ENV}`);
-  console.log("------------------------------");
+// Caminhos absolutos
+const distPath = path.join(__dirname, "dist");
+const publicPath = path.join(__dirname, "public");
 
-  if (isProd) {
-    // Ordem de prioridade para arquivos estáticos
-    app.use(express.static(distPath));
-    app.use(express.static(publicPath));
-    // Fallback para buscar na pasta de assets do código fonte se necessário
-    app.use("/src/assets", express.static(path.join(__dirname, "src", "assets")));
+// Middleware para logs (ajuda a debugar no painel da Hostinger)
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
 
-    // Rota de saúde para monitoramento
-    app.get("/api/health", (req, res) => {
-      res.json({ status: "ok", mode: "production" });
-    });
-
-    // Fallback para SPA (Single Page Application)
-    app.get("*", (req, res) => {
-      const indexPath = path.join(distPath, "index.html");
-      if (fs.existsSync(indexPath)) {
-        res.sendFile(indexPath);
-      } else {
-        res.status(404).send("Erro: Pasta 'dist' encontrada, mas 'index.html' não existe. Verifique o build.");
-      }
-    });
-  } else {
-    // Modo Desenvolvimento (Vite Middleware)
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
-  }
-
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`>>> Servidor MindTech rodando em http://0.0.0.0:${PORT}`);
-  });
+// 1. Tenta servir da pasta 'dist' (arquivos do build)
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
 }
 
-startServer().catch((err) => {
-  console.error("FALHA CRÍTICA AO INICIAR SERVIDOR:", err);
-  process.exit(1);
+// 2. Tenta servir da pasta 'public' (arquivos originais)
+if (fs.existsSync(publicPath)) {
+  app.use(express.static(publicPath));
+}
+
+// Rota de saúde
+app.get("/api/health", (req, res) => {
+  res.send("OK");
+});
+
+// Fallback para SPA (React)
+app.get("*", (req, res) => {
+  const indexPath = path.join(distPath, "index.html");
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).send("Site em manutenção ou build não encontrado.");
+  }
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
