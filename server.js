@@ -19,14 +19,35 @@ app.use((req, res, next) => {
   next();
 });
 
+// Rota de teste direto para a imagem
+app.get("/debug-logo", (req, res) => {
+  const logoPath = path.join(publicPath, "logo.png");
+  if (fs.existsSync(logoPath)) {
+    res.setHeader("Content-Type", "image/png");
+    res.sendFile(logoPath);
+  } else {
+    res.status(404).send("Logo não encontrado no caminho: " + logoPath);
+  }
+});
+
+// Configuração de arquivos estáticos com headers explícitos
+const staticOptions = {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith(".png")) {
+      res.setHeader("Content-Type", "image/png");
+    }
+    res.setHeader("Access-Control-Allow-Origin", "*");
+  }
+};
+
 // 1. Tenta servir da pasta 'dist' (arquivos do build)
 if (fs.existsSync(distPath)) {
-  app.use(express.static(distPath));
+  app.use(express.static(distPath, staticOptions));
 }
 
 // 2. Tenta servir da pasta 'public' (arquivos originais)
 if (fs.existsSync(publicPath)) {
-  app.use(express.static(publicPath));
+  app.use(express.static(publicPath, staticOptions));
 }
 
 // Rota de saúde
