@@ -30,19 +30,6 @@ import catalogo from './assets/catalogo.png';
 import thiago from './assets/thiago.png';
 import tsLogo from './assets/ts.png';
 
-const logoWithCache = logo;
-const catalogoWithCache = catalogo;
-const thiagoWithCache = thiago;
-const tsLogoWithCache = tsLogo;
-
-console.log('DEBUG IMAGENS:', { 
-  logo: logoWithCache, 
-  catalogo: catalogoWithCache, 
-  thiago: thiagoWithCache, 
-  tsLogo: tsLogoWithCache,
-  debugRoute: '/debug-logo'
-});
-
 // --- Components ---
 
 const Navbar = () => {
@@ -51,7 +38,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-center gap-8 md:gap-24 relative">
         <div className="hidden md:flex items-center gap-2">
           <img 
-            src={logoWithCache} 
+            src={logo} 
             alt="MindTech Logo" 
             className="h-10 w-auto"
             referrerPolicy="no-referrer"
@@ -122,7 +109,7 @@ const Hero = () => {
           >
             <div className="relative rounded-[40px] overflow-hidden border border-white/10 aspect-[4/5] md:aspect-square">
               <img 
-                src={catalogoWithCache} 
+                src={catalogo} 
                 alt="MindTech Catálogo" 
                 className="w-full h-full object-contain p-4"
                 referrerPolicy="no-referrer"
@@ -175,7 +162,7 @@ const About = () => {
           >
             <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 relative z-10">
               <img 
-                src={thiagoWithCache} 
+                src={thiago} 
                 alt="Thiago Salvino" 
                 className="w-full h-full object-cover transition-all duration-700"
                 referrerPolicy="no-referrer"
@@ -531,7 +518,7 @@ const Footer = () => {
           {/* Logo 1 */}
           <div className="flex justify-center md:justify-start order-1">
             <img 
-              src={logoWithCache} 
+              src={logo} 
               alt="MindTech Logo" 
               className="h-6 w-auto opacity-70"
               referrerPolicy="no-referrer"
@@ -541,7 +528,7 @@ const Footer = () => {
           {/* Logo 2 (Mobile order 2, Desktop order 3) */}
           <div className="flex justify-center md:justify-end order-2 md:order-3">
             <img 
-              src={tsLogoWithCache} 
+              src={tsLogo} 
               alt="TS Logo" 
               className="h-6 w-auto opacity-70"
               referrerPolicy="no-referrer"
