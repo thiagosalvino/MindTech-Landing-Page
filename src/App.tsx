@@ -31,7 +31,7 @@ const Navbar = () => (
     <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-center gap-8 md:gap-24 relative">
       <div className="hidden md:flex items-center gap-2">
         <img 
-          src="/logo.png" 
+          src="logo.png" 
           alt="MindTech Logo" 
           className="h-10 w-auto"
         />
@@ -70,12 +70,12 @@ const Hero = () => (
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">MindTech Academy</span>
           </div>
           
-          <h1 className="text-5xl md:text-8xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-center lg:text-justify">
+          <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-center lg:text-left">
             Desbloqueie Sua <br />
             Mente e <span className="text-brand-orange">Domine <br />o Digital.</span>
           </h1>
           
-          <p className="max-w-lg mx-auto lg:mx-0 text-base md:text-lg text-white/50 mb-10 leading-relaxed text-justify">
+          <p className="max-w-lg mx-auto lg:mx-0 text-base md:text-lg text-white/50 mb-10 leading-relaxed text-center lg:text-left">
             Na MindTech, criamos o caminho definitivo para quem quer dominar as ferramentas digitais e a IA, aumentando sua produtividade e autoridade no mundo moderno.
           </p>
           
@@ -99,7 +99,7 @@ const Hero = () => (
         >
           <div className="relative rounded-[40px] overflow-hidden border border-white/10 aspect-[4/5] md:aspect-square">
             <img 
-              src="/catalogo.png" 
+              src="catalogo.png" 
               alt="MindTech Catálogo" 
               className="w-full h-full object-contain p-4"
             />
@@ -149,7 +149,7 @@ const About = () => (
         >
           <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 relative z-10">
             <img 
-              src="/thiago.png" 
+              src="thiago.png" 
               alt="Thiago Salvino" 
               className="w-full h-full object-cover transition-all duration-700"
             />
@@ -164,11 +164,11 @@ const About = () => (
           viewport={{ once: true }}
           className="order-1 md:order-2 text-center md:text-left"
         >
-          <h2 className="text-2xl md:text-4xl font-display font-bold mb-6 text-center md:text-justify">
+          <h2 className="text-2xl md:text-4xl font-display font-bold mb-6 text-center md:text-left">
             Thiago Salvino: Seu guia para
             <span className="text-brand-orange block md:inline"> Descomplicar o Mundo Digital</span>
           </h2>
-          <div className="space-y-4 text-white/70 leading-relaxed text-justify">
+          <div className="space-y-4 text-white/70 leading-relaxed text-center md:text-left">
             <p>
               Sou <span className="text-white font-bold">Engenheiro da Computação e Empreendedor</span> com mais de <span className="text-white font-bold">8 anos de experiência</span> na área de Tecnologia da Informação. Minha jornada inclui especializações em Desenvolvimento de Software, Administração de Banco de Dados e práticas avançadas como DevOps.
             </p>
@@ -288,7 +288,7 @@ const BonusCard = ({ title, description, oldPrice, index }: BonusCardProps) => (
       </div>
     </div>
     <h4 className="text-lg font-display font-bold mb-4 text-center">{title}</h4>
-    <p className="text-sm text-white/50 mb-8 leading-relaxed text-justify">{description}</p>
+    <p className="text-sm text-white/50 mb-8 leading-relaxed text-left">{description}</p>
     <div className="mt-auto flex items-baseline justify-center gap-2 pt-4 border-t border-white/5">
       <span className="text-xs text-white/30 line-through">R$ {oldPrice}</span>
       <span className="text-xl font-bold text-brand-orange">R$ 0,00</span>
@@ -387,7 +387,7 @@ const Pricing = () => (
             <h3 className="text-xl md:text-3xl font-display font-extrabold text-white mb-4 text-center">
               Oferta Especial
             </h3>
-            <p className="text-white/90 text-sm mb-8 leading-relaxed text-justify">
+            <p className="text-white/90 text-sm mb-8 leading-relaxed text-left">
               O valor normal do <span className="font-bold">MindTech</span> com todo o conteúdo exclusivo será de <span className="line-through">R$ 497,00</span>, mas nesta oferta de pré-lançamento, você terá acesso a tudo isso + Bônus Especial por apenas:
             </p>
             
@@ -500,12 +500,12 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
       <div className="flex items-center justify-center gap-8 md:gap-12">
         <img 
-          src="/logo.png" 
+          src="logo.png" 
           alt="MindTech Logo" 
           className="h-6 w-auto opacity-70"
         />
         <img 
-          src="/ts.png" 
+          src="ts.png" 
           alt="TS Logo" 
           className="h-6 w-auto opacity-70"
         />
