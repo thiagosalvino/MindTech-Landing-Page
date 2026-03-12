@@ -37,20 +37,24 @@ app.get("/api/files", (req, res) => {
   }
 });
 
-// SERVIDOR DE IMAGENS MANUAL: Garante que a imagem saia pura do disco
+// SERVIDOR DE ATIVOS MANUAL: Entrega arquivos com o tipo correto (MIME Type)
 app.get("/assets/:filename", (req, res) => {
   const filename = req.params.filename;
   const filePath = path.join(__dirname, "dist", "assets", filename);
   
   if (fs.existsSync(filePath)) {
-    res.setHeader("Content-Type", "image/png");
-    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
-    res.setHeader("Pragma", "no-cache");
-    res.setHeader("Expires", "0");
+    // Define o tipo de conteúdo correto baseado na extensão
+    if (filename.endsWith(".js")) res.setHeader("Content-Type", "application/javascript");
+    else if (filename.endsWith(".css")) res.setHeader("Content-Type", "text/css");
+    else if (filename.endsWith(".png")) res.setHeader("Content-Type", "image/png");
+    else if (filename.endsWith(".jpg") || filename.endsWith(".jpeg")) res.setHeader("Content-Type", "image/jpeg");
+    else if (filename.endsWith(".svg")) res.setHeader("Content-Type", "image/svg+xml");
+
+    res.setHeader("Cache-Control", "public, max-age=31536000");
     const stream = fs.createReadStream(filePath);
     stream.pipe(res);
   } else {
-    res.status(404).send("Arquivo não encontrado no servidor.");
+    res.status(404).send("Arquivo não encontrado.");
   }
 });
 
