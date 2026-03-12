@@ -30,6 +30,8 @@ import catalogo from './assets/catalogo.png';
 import thiago from './assets/thiago.png';
 import tsLogo from './assets/ts.png';
 
+console.log('DEBUG IMAGENS:', { logo, catalogo, thiago, tsLogo });
+
 // --- Components ---
 
 const Navbar = () => {
