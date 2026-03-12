@@ -507,24 +507,35 @@ const FAQ = () => {
 const Footer = () => {
   return (
     <footer className="py-12 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
-        <div className="flex items-center justify-center gap-8 md:gap-12">
-          <img 
-            src="logo.png" 
-            alt="MindTech Logo" 
-            className="h-6 w-auto opacity-70"
-            referrerPolicy="no-referrer"
-          />
-          <img 
-            src="ts.png" 
-            alt="TS Logo" 
-            className="h-6 w-auto opacity-70"
-            referrerPolicy="no-referrer"
-          />
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 items-center gap-y-8 md:gap-8">
+          {/* Logo 1 */}
+          <div className="flex justify-center md:justify-start order-1">
+            <img 
+              src="logo.png" 
+              alt="MindTech Logo" 
+              className="h-6 w-auto opacity-70"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+
+          {/* Logo 2 (Mobile order 2, Desktop order 3) */}
+          <div className="flex justify-center md:justify-end order-2 md:order-3">
+            <img 
+              src="ts.png" 
+              alt="TS Logo" 
+              className="h-6 w-auto opacity-70"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+
+          {/* Copyright (Mobile order 3, Desktop order 2) */}
+          <div className="col-span-2 md:col-span-1 flex justify-center order-3 md:order-2">
+            <p className="text-white/30 text-[10px] md:text-xs text-center">
+              © Copyright 2026 MindTech. Todos os direitos reservados.
+            </p>
+          </div>
         </div>
-      <p className="text-white/30 text-[10px] md:text-xs text-center">
-        © Copyright 2026 MindTech. Todos os direitos reservados.
-      </p>
       </div>
     </footer>
   );
