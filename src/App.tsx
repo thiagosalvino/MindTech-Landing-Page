@@ -23,14 +23,6 @@ import {
   Gift
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-// @ts-ignore
-import logo from './logo.png';
-// @ts-ignore
-import tsLogo from './ts.png';
-// @ts-ignore
-import thiagoImg from './thiago.png';
-// @ts-ignore
-import catalogo from './catalogo.png';
 
 // --- Components ---
 
@@ -39,7 +31,7 @@ const Navbar = () => (
     <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-center gap-8 md:gap-24 relative">
       <div className="flex items-center gap-2">
         <img 
-          src={logo} 
+          src="/logo.png" 
           alt="MindTech Logo" 
           className="h-10 w-auto"
         />
@@ -107,7 +99,7 @@ const Hero = () => (
         >
           <div className="relative rounded-[40px] overflow-hidden border border-white/10 aspect-[4/5] md:aspect-square">
             <img 
-              src={catalogo} 
+              src="/catalogo.png" 
               alt="MindTech Catálogo" 
               className="w-full h-full object-contain p-4"
             />
@@ -157,7 +149,7 @@ const About = () => (
         >
           <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 relative z-10">
             <img 
-              src={thiagoImg} 
+              src="/thiago.png" 
               alt="Thiago Salvino" 
               className="w-full h-full object-cover transition-all duration-700"
             />
@@ -504,7 +496,7 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
       <div className="flex items-center gap-2">
         <img 
-          src={logo} 
+          src="/logo.png" 
           alt="MindTech Logo" 
           className="h-8 w-auto"
         />
@@ -514,7 +506,7 @@ const Footer = () => (
       </p>
       <div className="flex items-center gap-6">
         <img 
-          src={tsLogo} 
+          src="/ts.png" 
           alt="TS Logo" 
           className="h-8 w-auto"
         />
