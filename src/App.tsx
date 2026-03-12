@@ -30,10 +30,10 @@ import catalogo from './assets/catalogo.png';
 import thiago from './assets/thiago.png';
 import tsLogo from './assets/ts.png';
 
-const logoWithCache = `${logo}?v=1.1`;
-const catalogoWithCache = `${catalogo}?v=1.1`;
-const thiagoWithCache = `${thiago}?v=1.1`;
-const tsLogoWithCache = `${tsLogo}?v=1.1`;
+const logoWithCache = logo;
+const catalogoWithCache = catalogo;
+const thiagoWithCache = thiago;
+const tsLogoWithCache = tsLogo;
 
 console.log('DEBUG IMAGENS:', { 
   logo: logoWithCache, 
