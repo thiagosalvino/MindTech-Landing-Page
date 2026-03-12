@@ -1,25 +1,28 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
 import path from "path";
-import { fileURLToPath } from "url";
 import fs from "fs";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
   const PORT = process.env.PORT || 3000;
+  const root = process.cwd();
   
-  // Detecta se estamos em produção verificando a existência da pasta dist
-  const distPath = path.resolve(__dirname, "dist");
-  const isProd = process.env.NODE_ENV === "production" || fs.existsSync(distPath);
+  // Caminhos importantes
+  const distPath = path.join(root, "dist");
+  const publicPath = path.join(root, "public");
+  
+  // Detecta se estamos em produção (se a pasta dist existe)
+  const isProd = fs.existsSync(distPath);
 
-  console.log(`Modo: ${isProd ? "Produção" : "Desenvolvimento"}`);
+  console.log(`Ambiente: ${isProd ? "Produção" : "Desenvolvimento"}`);
 
   if (isProd) {
-    // Em produção, servimos os arquivos estáticos da pasta dist
+    // 1. Servir arquivos da pasta dist (resultado do build)
     app.use(express.static(distPath));
+    
+    // 2. Reserva: Servir arquivos da pasta public (caso o build não tenha movido algo)
+    app.use(express.static(publicPath));
 
     // Rotas de API (se houver)
     app.get("/api/health", (req, res) => {
@@ -28,10 +31,15 @@ async function startServer() {
 
     // Fallback para SPA (essencial para React)
     app.get("*", (req, res) => {
-      res.sendFile(path.resolve(distPath, "index.html"));
+      const indexPath = path.join(distPath, "index.html");
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        res.status(404).send("Build não encontrado. Verifique se o comando 'npm run build' foi executado.");
+      }
     });
   } else {
-    // Em desenvolvimento, usamos o middleware do Vite
+    // Modo Desenvolvimento
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -40,8 +48,11 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Servidor rodando em http://0.0.0.0:${PORT}`);
+    console.log(`Servidor iniciado em http://localhost:${PORT}`);
   });
 }
 
-startServer();
+startServer().catch((err) => {
+  console.error("Erro ao iniciar o servidor:", err);
+  process.exit(1);
+});
