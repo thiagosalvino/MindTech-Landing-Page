@@ -29,7 +29,7 @@ import { motion, AnimatePresence } from 'motion/react';
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
     <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-center gap-8 md:gap-24 relative">
-      <div className="flex items-center gap-2">
+      <div className="hidden md:flex items-center gap-2">
         <img 
           src="/logo.png" 
           alt="MindTech Logo" 
@@ -38,11 +38,11 @@ const Navbar = () => (
       </div>
       
       {/* Centered Modern Notice */}
-      <div className="flex items-center gap-3 px-6 py-2 rounded-full bg-brand-orange/10 border border-brand-orange/30 shadow-[0_0_15px_rgba(255,107,0,0.1)]">
-        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-brand-orange animate-pulse">
-          <Flame className="w-3.5 h-3.5 text-white" />
+      <div className="flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 rounded-full bg-brand-orange/10 border border-brand-orange/30 shadow-[0_0_15px_rgba(255,107,0,0.1)]">
+        <div className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-orange animate-pulse">
+          <Flame className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
         </div>
-        <p className="text-sm font-bold text-white whitespace-nowrap">
+        <p className="text-[10px] md:text-sm font-bold text-white whitespace-nowrap">
           Pré-lançamento: <span className="text-brand-orange uppercase tracking-tighter">Oferta por tempo LIMITADO</span>
         </p>
       </div>
@@ -63,26 +63,26 @@ const Hero = () => (
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-left"
+          className="text-center lg:text-left"
         >
-          <div className="flex items-center gap-2 mb-8">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
             <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">MindTech Academy</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-justify">
+          <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-center lg:text-justify">
             Desbloqueie Sua <br />
             Mente e <span className="text-brand-orange">Domine <br />o Digital.</span>
           </h1>
           
-          <p className="max-w-lg text-lg text-white/50 mb-10 leading-relaxed text-justify">
+          <p className="max-w-lg mx-auto lg:mx-0 text-base md:text-lg text-white/50 mb-10 leading-relaxed text-justify">
             Na MindTech, criamos o caminho definitivo para quem quer dominar as ferramentas digitais e a IA, aumentando sua produtividade e autoridade no mundo moderno.
           </p>
           
           <div className="flex justify-center lg:justify-start">
             <a 
               href="#oferta" 
-              className="w-full sm:w-auto px-12 py-5 orange-gradient rounded-full text-lg font-bold flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-brand-orange/40 hover:scale-105 transition-all group"
+              className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 orange-gradient rounded-full text-base md:text-lg font-bold flex items-center justify-center gap-3 hover:shadow-2xl hover:shadow-brand-orange/40 hover:scale-105 transition-all group"
             >
               Quero me inscrever agora
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -111,9 +111,9 @@ const Hero = () => (
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="absolute -top-6 -right-6 w-16 h-16 orange-gradient rounded-2xl flex items-center justify-center shadow-2xl shadow-brand-orange/40"
+            className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-12 h-12 md:w-16 md:h-16 orange-gradient rounded-xl md:rounded-2xl flex items-center justify-center shadow-2xl shadow-brand-orange/40"
           >
-            <Zap className="text-white w-8 h-8" />
+            <Zap className="text-white w-6 h-6 md:w-8 md:h-8" />
           </motion.div>
 
           {/* Bottom Left Badge */}
@@ -121,14 +121,14 @@ const Hero = () => (
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="absolute -bottom-6 -left-6 glass-card p-5 rounded-3xl border-white/10 flex items-center gap-4 shadow-2xl"
+            className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 glass-card p-3 md:p-5 rounded-2xl md:rounded-3xl border-white/10 flex items-center gap-3 md:gap-4 shadow-2xl"
           >
-            <div className="w-10 h-10 rounded-xl bg-brand-orange/20 flex items-center justify-center">
-              <ShieldCheck className="text-brand-orange w-6 h-6" />
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-brand-orange/20 flex items-center justify-center">
+              <ShieldCheck className="text-brand-orange w-5 h-5 md:w-6 md:h-6" />
             </div>
             <div>
-              <div className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Metodologia</div>
-              <div className="text-sm font-bold">100% Validada</div>
+              <div className="text-[8px] md:text-[10px] font-bold text-white/40 uppercase tracking-widest">Metodologia</div>
+              <div className="text-xs md:text-sm font-bold">100% Validada</div>
             </div>
           </motion.div>
         </motion.div>
@@ -138,14 +138,14 @@ const Hero = () => (
 );
 
 const About = () => (
-  <section id="sobre" className="py-24 relative">
+  <section id="sobre" className="py-12 md:py-24 relative">
     <div className="max-w-7xl mx-auto px-4">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative order-2 md:order-1"
         >
           <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 relative z-10">
             <img 
@@ -162,8 +162,9 @@ const About = () => (
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
+          className="order-1 md:order-2 text-center md:text-left"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-justify">
+          <h2 className="text-2xl md:text-4xl font-display font-bold mb-6 text-center md:text-justify">
             Thiago Salvino: Seu guia para
             <span className="text-brand-orange block md:inline"> Descomplicar o Mundo Digital</span>
           </h2>
@@ -177,7 +178,7 @@ const About = () => (
             <p>
               Através do MindTech, busco levar os conhecimentos essenciais de Gestão Pessoal, Tecnologia da Informação, Prática Digital e Inteligência Artificial para todo o país. Minha missão é que você domine essas ferramentas de forma clara, objetiva e acessível.
             </p>
-            <p className="text-white font-bold text-lg pt-4 text-center">
+            <p className="text-white font-bold text-base md:text-lg pt-4 text-center">
               Prepare-se para dar um salto na sua autonomia digital!
             </p>
           </div>
@@ -315,7 +316,7 @@ const Bonuses = () => {
   ];
 
   return (
-    <section id="bonus" className="py-24 relative overflow-hidden">
+    <section id="bonus" className="pt-24 pb-12 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-orange/5 blur-[150px] rounded-full -z-10" />
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
@@ -341,16 +342,19 @@ const Bonuses = () => {
 };
 
 const Pricing = () => (
-  <section id="oferta" className="py-24">
+  <section id="oferta" className="py-12 md:py-24">
+    <div className="max-w-7xl mx-auto px-4 mb-12">
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-orange/50 to-transparent" />
+    </div>
     <div className="max-w-5xl mx-auto px-4">
       <div className="grid md:grid-cols-2 gap-8">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-10 rounded-[40px] border-white/5"
+          className="glass-card p-6 md:p-10 rounded-[32px] md:rounded-[40px] border-white/5"
         >
-          <h3 className="text-2xl font-display font-bold mb-8 text-center">Itens Inclusos</h3>
+          <h3 className="text-xl md:text-2xl font-display font-bold mb-8 text-center">Itens Inclusos</h3>
           <ul className="space-y-6">
             {[
               { icon: Award, text: "Acesso completo por 1 ano a +100 Aulas Práticas" },
@@ -374,14 +378,14 @@ const Pricing = () => (
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-10 rounded-[40px] border-2 border-brand-orange shadow-2xl shadow-brand-orange/20 flex flex-col justify-between"
+          className="glass-card p-6 md:p-10 rounded-[32px] md:rounded-[40px] border-2 border-brand-orange shadow-2xl shadow-brand-orange/20 flex flex-col justify-between"
         >
           <div className="text-center">
-            <div className="inline-block px-6 py-2 rounded-full bg-brand-orange text-white text-sm font-black uppercase tracking-widest mb-6 shadow-lg">
-              Oferta Especial
+            <div className="inline-block px-6 py-2 rounded-full bg-brand-orange text-white text-[10px] md:text-sm font-black uppercase tracking-widest mb-6 shadow-lg">
+              Por tempo LIMITADO!
             </div>
-            <h3 className="text-3xl font-display font-extrabold text-white mb-4 text-center">
-              Promoção por tempo <span className="text-brand-orange">LIMITADO!</span>
+            <h3 className="text-xl md:text-3xl font-display font-extrabold text-white mb-4 text-center">
+              Oferta Especial
             </h3>
             <p className="text-white/90 text-sm mb-8 leading-relaxed text-justify">
               O valor normal do <span className="font-bold">MindTech</span> com todo o conteúdo exclusivo será de <span className="line-through">R$ 497,00</span>, mas nesta oferta de pré-lançamento, você terá acesso a tudo isso + Bônus Especial por apenas:
@@ -390,7 +394,7 @@ const Pricing = () => (
             <div className="mb-8 text-center">
               <span className="text-white/80 text-sm block mb-1">12x de</span>
               <div className="flex items-baseline justify-center gap-2">
-                <span className="text-7xl font-display font-black text-brand-orange drop-shadow-xl">R$ 20,37</span>
+                <span className="text-5xl md:text-7xl font-display font-black text-brand-orange drop-shadow-xl">R$ 20,37</span>
               </div>
               <span className="text-white/80 text-sm block mt-2 font-medium">ou R$ 197,00 à vista</span>
             </div>
@@ -401,7 +405,7 @@ const Pricing = () => (
               href="https://pay.kiwify.com.br/QnQSMnx"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-5 orange-gradient text-white rounded-2xl text-xl font-black hover:scale-[1.02] transition-transform shadow-xl flex items-center justify-center text-center"
+              className="w-full py-4 md:py-5 orange-gradient text-white rounded-2xl text-base md:text-xl font-black hover:scale-[1.02] transition-transform shadow-xl flex items-center justify-center text-center"
             >
               Quero garantir minha vaga AGORA
             </a>
@@ -471,7 +475,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24">
+    <section id="faq" className="pt-12 pb-24">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-brand-orange text-xs font-black uppercase tracking-[0.3em] mb-4 block">FAQ</span>
@@ -493,24 +497,22 @@ const FAQ = () => {
 
 const Footer = () => (
   <footer className="py-12 border-t border-white/5">
-    <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-      <div className="flex items-center gap-2">
+    <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
+      <div className="flex items-center justify-center gap-8 md:gap-12">
         <img 
           src="/logo.png" 
           alt="MindTech Logo" 
-          className="h-8 w-auto"
+          className="h-6 w-auto opacity-70"
         />
-      </div>
-      <p className="text-white/30 text-sm">
-        © Copyright 2026 MindTech. Todos os direitos reservados.
-      </p>
-      <div className="flex items-center gap-6">
         <img 
           src="/ts.png" 
           alt="TS Logo" 
-          className="h-8 w-auto"
+          className="h-6 w-auto opacity-70"
         />
       </div>
+      <p className="text-white/30 text-[10px] md:text-xs text-center">
+        © Copyright 2026 MindTech. Todos os direitos reservados.
+      </p>
     </div>
   </footer>
 );
@@ -544,14 +546,6 @@ export default function App() {
       <Pricing />
       <FAQ />
       <Footer />
-
-      {/* Floating WhatsApp Button */}
-      <a 
-        href="#" 
-        className="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-[100]"
-      >
-        <MessageCircle className="text-white w-8 h-8" />
-      </a>
     </div>
   );
 }
