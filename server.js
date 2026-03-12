@@ -25,12 +25,12 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     // Servir arquivos estáticos em produção (após o npm run build)
-    const distPath = path.join(process.cwd(), "dist");
+    const distPath = path.resolve(__dirname, "dist");
     app.use(express.static(distPath));
     
     // Fallback para index.html (essencial para React/SPA)
     app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
+      res.sendFile(path.resolve(distPath, "index.html"));
     });
   }
 
