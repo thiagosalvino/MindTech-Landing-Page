@@ -70,7 +70,7 @@ const Hero = () => (
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">MindTech Academy</span>
           </div>
           
-          <h1 className="text-4xl md:text-7xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-center lg:text-justify">
+          <h1 className="text-5xl md:text-8xl font-display font-extrabold tracking-tight mb-8 leading-[1.05] text-center lg:text-justify">
             Desbloqueie Sua <br />
             Mente e <span className="text-brand-orange">Domine <br />o Digital.</span>
           </h1>
